@@ -30,15 +30,15 @@ const SITE = {
   taglineSub: "Creates supernatural people empowered to do the work of ministry!",
 
   // ─── LIVESTREAM: paste your YouTube or Facebook Live embed URL ──
-  livestreamEmbedUrl: "",  // e.g. "https://www.youtube.com/embed/LIVE_STREAM_ID"
+  livestreamEmbedUrl: "https://www.youtube.com/embed/live_stream?channel=UC_x5XG1OV2P6uZZ5FSM9Ttw",  // Replace with your actual YouTube live stream
   youtubeChannel: "https://www.youtube.com/@ignitemb",
   facebookPage: "https://www.facebook.com/IgniteMB",
 
   // ─── SERMONS: add audio sermons here ───────────────────────────
   sermons: [
-    { title: "Becoming a Disciple — Part 3", speaker: "Pastor Jim Neece", date: "March 30, 2026", audioUrl: "", series: "Becoming a Disciple of Jesus" },
-    { title: "Becoming a Disciple — Part 2", speaker: "Pastor Jim Neece", date: "March 23, 2026", audioUrl: "", series: "Becoming a Disciple of Jesus" },
-    { title: "Becoming a Disciple — Part 1", speaker: "Pastor Jim Neece", date: "March 16, 2026", audioUrl: "", series: "Becoming a Disciple of Jesus" },
+    { title: "Becoming a Disciple — Part 3", speaker: "Pastor Jim Neece", date: "March 30, 2026", audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", series: "Becoming a Disciple of Jesus" },
+    { title: "Becoming a Disciple — Part 2", speaker: "Pastor Jim Neece", date: "March 23, 2026", audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3", series: "Becoming a Disciple of Jesus" },
+    { title: "Becoming a Disciple — Part 1", speaker: "Pastor Jim Neece", date: "March 16, 2026", audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3", series: "Becoming a Disciple of Jesus" },
   ],
 };
 
@@ -67,19 +67,19 @@ const NAV = [
   { label: "Livestream", page: "livestream" },
 ];
 
-// ─── PURPLE THEME ────────────────────────────────────────────────
+// ─── PURPLE THEME (matched from live site) ───────────────────────
 const C = {
-  bg: "#2d1b4e",
-  bgDark: "#1e1233",
-  bgAlt: "#3a2463",
-  bgLight: "#4a3175",
+  bg: "#8E44AD",          // primary purple (exact from live site)
+  bgDark: "#222222",      // dark sections / nav
+  bgAlt: "#9B59B6",       // lighter purple for alternating sections
+  bgLight: "#a463c7",     // lighter purple for cards
   white: "#ffffff",
-  offWhite: "#e8e0f0",
-  muted: "#b8a8cc",
-  accent: "#c9a84c",
-  inputBg: "#3a2463",
-  border: "#5a3d8a",
-  footerBg: "#1a0e2e",
+  offWhite: "#f0e6f6",
+  muted: "rgba(255,255,255,0.6)",
+  accent: "#c9a84c",      // gold accent
+  inputBg: "#7d3c98",
+  border: "#a569bd",
+  footerBg: "#1a1a1a",
 };
 
 // ─── RESPONSIVE HOOK (auto-detects real screen size) ─────────────
@@ -285,11 +285,14 @@ function HomePage({ go }) {
           However, you will ALWAYS hear the word of God.<br />
           For this week's message, click on the video.
         </p>
-        <div style={{ maxWidth: 640, margin: "0 auto", background: C.bgDark, borderRadius: 8, aspectRatio: "16/9", display: "flex", alignItems: "center", justifyContent: "center", border: `1px solid ${C.border}` }}>
-          <div style={{ textAlign: "center", color: C.muted }}>
-            <div style={{ fontSize: 48 }}>▶</div>
-            <p style={{ fontSize: 13, marginTop: 4 }}>Video Embed</p>
-          </div>
+        <div style={{ maxWidth: 640, margin: "0 auto", borderRadius: 8, overflow: "hidden" }}>
+          <iframe
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            style={{ width: "100%", aspectRatio: "16/9", border: "none" }}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title="Latest Sermon"
+          />
         </div>
       </div>
 
